@@ -78,3 +78,10 @@ prevBtn.addEventListener('click', function() {
 
     showPerson();
 });
+
+// Show random person
+randomBtn.addEventListener('click', function() {
+    currItem = Math.floor(Math.random() * reviews.length);
+    console.log(currItem);
+    showPerson();
+});
