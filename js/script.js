@@ -45,12 +45,12 @@ let currItem = 0;
 
 // load initial item
 window.addEventListener('DOMContentLoaded', function() {
-    showPerson(currItem);
+    showPerson();
 });
 
 // Show person that's based on the item
-function showPerson(person) {
-    const item = reviews[person];
+function showPerson() {
+    const item = reviews[currItem];
     img.src = item.img;
     author.textContent = item.name;
     job.textContent = item.job;
@@ -60,5 +60,21 @@ function showPerson(person) {
 // Show next person
 nextBtn.addEventListener('click', function() {
     currItem++;
+
+    if (currItem > reviews.length - 1) {
+        currItem = 0;
+    }
+
     showPerson(currItem);
+});
+
+// Show previous person
+prevBtn.addEventListener('click', function() {
+    currItem--;
+
+    if (currItem < 0) {
+        currItem = reviews.length - 1;
+    }
+
+    showPerson();
 });
